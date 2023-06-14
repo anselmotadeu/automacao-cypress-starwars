@@ -1,5 +1,3 @@
-const { it } = require("mocha")
-
 describe('Testes automatizados - Star Wars', () => {
   beforeEach(() => {
     cy.visit('starwars-personal-project/index.html');
