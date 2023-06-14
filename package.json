@@ -1,0 +1,23 @@
+{
+  "name": "automation",
+  "version": "1.0.0",
+  "description": "suíte de testes automatizados com cypress no site que criamos 'Star Wars Lego'",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anselmotadeu/starwars-personal-project.git"
+  },
+  "author": "Anselmo Santos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anselmotadeu/starwars-personal-project/issues"
+  },
+  "homepage": "https://github.com/anselmotadeu/starwars-personal-project#readme",
+  "dependencies": {
+    "cypress": "^12.14.0",
+    "mocha": "^10.2.0"
+  }
+}
