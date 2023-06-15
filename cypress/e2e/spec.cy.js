@@ -1,12 +1,13 @@
 describe('Testes automatizados - Star Wars', () => {
+  
   beforeEach(() => {
-    cy.visit('starwars-personal-project/index.html');
+    cy.visit('https://starwars-personal-project-1v7h.vercel.app/')
   });
 
   it('Verificar a exibição inicial da página', () => {
-    cy.contains('Star Wars').should('be.visible');
-    cy.get('form').should('be.visible');
-    cy.get('.characters').should('be.visible');
+    cy.contains('Star Wars').should('be.visible')
+    cy.get('form').should('be.visible')
+    cy.get('.characters').should('be.visible')
   });
 
   it('Verificar a funcionalidade de busca', () => {
@@ -20,23 +21,23 @@ describe('Testes automatizados - Star Wars', () => {
   });
 
   it('Pesquisa de personagem que não existe', () => {
-    cy.get('input[type="text"]').type('Han Mestre{enter}');
+    cy.get('input[type="text"]').type('Han Mestre{enter}')
   
     cy.window().then((win) => {
-      const mensagemNaoEncontrado = 'Nenhum personagem encontrado com esse nome';
-      const div = win.document.createElement('div');
+      const mensagemNaoEncontrado = 'Nenhum personagem encontrado com esse nome'
+      const div = win.document.createElement('div')
       div.innerText = mensagemNaoEncontrado;
-      div.style.color = 'red';
-      div.id = 'mensagem-nao-encontrado';
-      win.document.getElementById('app').appendChild(div);
+      div.style.color = 'red'
+      div.id = 'mensagem-nao-encontrado'
+      win.document.getElementById('app').appendChild(div)
     });
   
-    cy.get('#mensagem-nao-encontrado').should('be.visible').and('contain', 'Nenhum personagem encontrado com esse nome');
+    cy.get('#mensagem-nao-encontrado').should('be.visible').and('contain', 'Nenhum personagem encontrado com esse nome')
   });
 
   it('Verificar a funcionalidade de limpar a busca', () => {
     cy.get('input[type="text"]').type('Luke Skywalker')
-    .should('be.visible');
+    .should('be.visible')
     cy.contains('Buscar').click()
     .should('have.value', '')
     cy.contains('Limpar').click()
@@ -54,7 +55,7 @@ describe('Testes automatizados - Star Wars', () => {
   it('Verificar a funcionalidade de remover um personagem', () => {
     cy.get('.characters .item').should('have.length', 8)
     cy.get('.delete').first().click()
-    cy.get('.characters .item').should('have.length', 7);
+    cy.get('.characters .item').should('have.length', 7)
     // Verificar se o personagem removido não é exibido na próxima visita à página (se aplicável)
   });
 })
